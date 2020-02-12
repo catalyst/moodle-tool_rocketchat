@@ -46,9 +46,7 @@ class rocket {
         global $CFG, $SITE;
         $url = get_config('tool_rocketchat', 'hookurl');
 
-        $curl = new \curl([
-            'debug' => 0
-        ]);
+        $curl = new \curl(['debug' => 0]);
         $curl->setHeader(array('Content-type: application/json'));
 
         $user = \core_user::get_user($event->userid);
@@ -62,7 +60,14 @@ class rocket {
         }
 
         $json = [
-            'text'        => $event->get_name() . " by $name ({$user->id}) in $SITE->fullname ($CFG->wwwroot) ",
+            // 'text'        => $event->get_name() . " by $name ({$user->id}) in $SITE->fullname ($CFG->wwwroot) ",
+            'text'        => get_string('textformat', 'tool_rocketchat', [
+                'name'          => $event->get_name(),
+                'username'      => $name,
+                'userid'        => $user->id,
+                'sitefullname'  => $SITE->fullname,
+                'wwwroot'       => $CFG->wwwroot,
+            ]),
             'channel'     => $channel,
             'attachments' => [[
                 'title'      => $event->get_description(),
