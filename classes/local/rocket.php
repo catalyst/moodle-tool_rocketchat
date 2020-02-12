@@ -40,21 +40,22 @@ class rocket {
         $curl->setHeader(array('Content-type: application/json'));
 
         $user = \core_user::get_user($event->userid);
-        $user = fullname($user);
+        $name = fullname($user);
         $link = $event->get_url();
 
         if ($link) {
             $link = $link->out();
+        } else {
+            $link = $CFG->wwwroot;
         }
 
         $json = [
-            'text' => $SITE->fullname . ': ' . $user,
+            'text' => "$SITE->fullname : $name (ID {$user->id} )",
             "attachments"=> [[
                 "title"      => $event->get_name(),
                 "title_link" => $link,
                 "text"       => $event->get_description()
-                            . "\n" . $SITE->fullname
-                            . ' from ' . $CFG->wwwroot,
+                            . "\n" . $link,
                 "color"      => "#764FA5"
             ]]
         ];
