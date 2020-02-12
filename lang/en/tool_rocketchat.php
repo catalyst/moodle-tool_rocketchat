@@ -24,8 +24,7 @@
 
 $string['pluginname'] = 'Rocketchat events';
 $string['hookurl'] = 'Hook url';
-$string['hookurlhelp'] = 'Hook url looks like';
-
+$string['hookurlhelp'] = "A full hook url eg:\nhttps://rocketchat.com/hooks/123456789/zxcasdqweertdfhcvn";
 
 /*
  * Privacy provider (GDPR)
