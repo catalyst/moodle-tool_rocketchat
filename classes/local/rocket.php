@@ -60,7 +60,6 @@ class rocket {
         }
 
         $json = [
-            // 'text'        => $event->get_name() . " by $name ({$user->id}) in $SITE->fullname ($CFG->wwwroot) ",
             'text'        => get_string('textformat', 'tool_rocketchat', [
                 'name'          => $event->get_name(),
                 'username'      => $name,
@@ -77,7 +76,15 @@ class rocket {
         ];
 
         $post = json_encode($json);
-        $curl->post($url, $post);
+
+        $result = $curl->post($url, $post, [
+            'timeout' => 5, // This is a blocking call so worst case timeout very quickly.
+        ]);
+        if ($result !== true) {
+            $error_text = $result;
+            $errno = $curl->get_errno();
+            debugging("tool_rocketchat error '$result', $errno");
+        }
 
     }
 
