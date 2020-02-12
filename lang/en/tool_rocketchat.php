@@ -24,8 +24,8 @@
 
 $string['pluginname'] = 'Rocketchat events';
 $string['eventtest'] = 'A test event';
-$string['hookurl'] = 'Hook url';
-$string['hookurlhelp'] = "A full hook url eg:\nhttps://rocketchat.com/hooks/123456789/zxcasdqweertdfhcvn";
+$string['hookurl'] = 'Webhook URL';
+$string['hookurlhelp'] = "Copy the full Webhook URL from the Rocketchat 'Incoming WebHook Integration' page. It will look something like:\nhttps://rocketchat.com/hooks/123456789/zxcasdqweertdfhcvn";
 
 /*
  * Privacy provider (GDPR)
