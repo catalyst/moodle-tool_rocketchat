@@ -12,7 +12,7 @@ What is this?
 This is a very simple tool which listens to Moodle log events you specify,
 and then it pushes those events into RocketChat.
 
-Obviously you will only want to listen to a very small subset of events.
+You will likely only want to listen to a very small subset of important events.
 
 ![image](https://user-images.githubusercontent.com/187449/74342807-2f5edf00-4dfe-11ea-8451-2be090a66b2d.png)
 
