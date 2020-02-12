@@ -64,8 +64,12 @@ if ($options['channel']) {
     set_debugging(DEBUG_DEVELOPER, true);
 }
 
+$event = \tool_rocketchat\event\rocketchat_test::create([
+    'context' => context_system::instance(),
+    'userid' => core_user::get_support_user()->id,
+]);
+$event->trigger();
 
-tool_rocketchat\local\rocket::send();
 
 
 

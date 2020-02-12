@@ -22,12 +22,20 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$string['pluginname'] = 'Rocketchat events';
-$string['eventtest'] = 'A test event';
-$string['hookurl'] = 'Hook url';
-$string['hookurlhelp'] = "A full hook url eg:\nhttps://rocketchat.com/hooks/123456789/zxcasdqweertdfhcvn";
+namespace tool_rocketchat\local;
 
-/*
- * Privacy provider (GDPR)
- */
-$string["privacy:no_data_reason"] = "The rocketchat plugin does not store any personal data, but may be configured to export private data to rocketchat.";
+defined('MOODLE_INTERNAL') || die();
+
+class observer {
+
+    /**
+     * Send selected events to rocketchat
+     *
+     * @param \core\event\base $event
+     */
+    public static function notify(\core\event\base $event) {
+
+        \tool_rocketchat\local\rocket::send($event);
+
+    }
+}

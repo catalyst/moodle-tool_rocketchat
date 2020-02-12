@@ -19,15 +19,16 @@
  *
  * @package    tool_rocketchat
  * @copyright  2020 Brendan Heywood <brendan@catalyst-au.net>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$string['pluginname'] = 'Rocketchat events';
-$string['eventtest'] = 'A test event';
-$string['hookurl'] = 'Hook url';
-$string['hookurlhelp'] = "A full hook url eg:\nhttps://rocketchat.com/hooks/123456789/zxcasdqweertdfhcvn";
+defined('MOODLE_INTERNAL') || die();
 
-/*
- * Privacy provider (GDPR)
- */
-$string["privacy:no_data_reason"] = "The rocketchat plugin does not store any personal data, but may be configured to export private data to rocketchat.";
+$observers = array(
+    array(
+        'eventname' => '*',
+        'callback'  => '\tool_rocketchat\local\observer::notify',
+        'internal'  => false,
+        'priority'  => 1000,
+    ),
+);

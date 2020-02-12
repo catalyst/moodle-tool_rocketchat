@@ -26,8 +26,12 @@ namespace tool_rocketchat\local;
 
 class rocket {
 
-    static public function send() {
+    /**
+     * @param $event moodle event
+     */
+    static public function send($event) {
 
+        global $CFG, $SITE;
         $url = get_config('tool_rocketchat', 'hookurl');
 
         $curl = new \curl([
@@ -35,17 +39,21 @@ class rocket {
         ]);
         $curl->setHeader(array('Content-type: application/json'));
 
+        $user = \core_user::get_user($event->userid);
+        $user = fullname($user);
+
         $json = [
-            'text' => 'hello world'. usertime(time()),
+            'text' => $SITE->fullname . ': ' . $user,
             "attachments"=> [[
-                "title"      => "a moodle eventcrap",
-                "title_link" => "https://moodle.com/blah",
-                "text"       => "a",
+                "title"      => $event->get_name(),
+                "title_link" => $event->get_url(),
+                "text"       => $event->get_description()
+                            . ' from ' . $SITE->fullname
+                            . ' from ' . $CFG->wwwroot,
                 "color"      => "#764FA5"
             ]]
         ];
         $post = json_encode($json);
-
         $curl->post($url, $post);
 
     }
