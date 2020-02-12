@@ -41,18 +41,24 @@ class rocket {
 
         $user = \core_user::get_user($event->userid);
         $user = fullname($user);
+        $link = $event->get_url();
+
+        if ($link) {
+            $link = $link->out();
+        }
 
         $json = [
             'text' => $SITE->fullname . ': ' . $user,
             "attachments"=> [[
                 "title"      => $event->get_name(),
-                "title_link" => $event->get_url(),
+                "title_link" => $link,
                 "text"       => $event->get_description()
-                            . ' from ' . $SITE->fullname
+                            . "\n" . $SITE->fullname
                             . ' from ' . $CFG->wwwroot,
                 "color"      => "#764FA5"
             ]]
         ];
+
         $post = json_encode($json);
         $curl->post($url, $post);
 
