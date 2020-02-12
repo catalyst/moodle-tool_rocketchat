@@ -68,7 +68,7 @@ class rocketchat_test extends \core\event\base {
      * @return \moodle_url
      */
     public function get_url() {
-        return 'http://moodle.local/admin/settings.php?section=tool_rocketchat';
+        return new \moodle_url('/admin/settings.php?section=tool_rocketchat');
     }
 
 }
