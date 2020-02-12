@@ -31,7 +31,7 @@ if ($hassiteconfig) {
     $ADMIN->add('tools', $settings);
     if (!during_initial_install()) {
 
-        $settings->add(new admin_setting_configtext('tool_rocketchat/hookurl',
+        $settings->add(new admin_setting_configpasswordunmask('tool_rocketchat/hookurl',
                 new lang_string('hookurl',           'tool_rocketchat'),
                 new lang_string('hookurlhelp',       'tool_rocketchat'),
                 '/' ));
