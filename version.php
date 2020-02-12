@@ -26,7 +26,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $plugin->version   = 2020021200;
 $plugin->release   = 2002021200; // Match release exactly to version.
-$plugin->requires  = 2012120311; // Deep support going back to 2.4
+$plugin->requires  = 2012120311; // Deep support going back to 2.4.
 $plugin->component = 'tool_rocketchat';
 $plugin->maturity  = MATURITY_STABLE;
 

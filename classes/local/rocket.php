@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Version details.
+ * Thin rocket web hook client
  *
  * @package    tool_rocketchat
  * @copyright  2020 Brendan Heywood <brendan@catalyst-au.net>
@@ -24,10 +24,21 @@
 
 namespace tool_rocketchat\local;
 
+defined('MOODLE_INTERNAL') || die();
+
+/**
+ * Thin rocket web hook client
+ *
+ * @package    tool_rocketchat
+ * @copyright  2020 Brendan Heywood <brendan@catalyst-au.net>
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 class rocket {
 
     /**
-     * @param $event moodle event
+     * Send a moodle event to rocketchat
+     *
+     * @param \core\event\base $event the event to send
      */
     static public function send($event) {
 
@@ -51,7 +62,7 @@ class rocket {
 
         $json = [
             'text' => "$SITE->fullname : $name (ID {$user->id} )",
-            "attachments"=> [[
+            "attachments" => [[
                 "title"      => $event->get_name(),
                 "title_link" => $link,
                 "text"       => $event->get_description()
