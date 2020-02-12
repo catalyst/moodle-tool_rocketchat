@@ -80,9 +80,8 @@ class rocket {
         $result = $curl->post($url, $post, [
             'timeout' => 5, // This is a blocking call so worst case timeout very quickly.
         ]);
-        if ($result !== true) {
-            $error_text = $result;
-            $errno = $curl->get_errno();
+        $errno = $curl->get_errno();
+        if ($errno) {
             debugging("tool_rocketchat error '$result', $errno");
         }
 
