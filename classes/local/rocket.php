@@ -39,8 +39,9 @@ class rocket {
      * Send a moodle event to rocketchat
      *
      * @param \core\event\base $event the event to send
+     * @param string $channel the channel to notify
      */
-    static public function send($event) {
+    static public function send($event, $channel = '') {
 
         global $CFG, $SITE;
         $url = get_config('tool_rocketchat', 'hookurl');
@@ -61,11 +62,12 @@ class rocket {
         }
 
         $json = [
-            'text' => $event->get_name() . " by $name ({$user->id}) in $SITE->fullname ($CFG->wwwroot) ",
-            "attachments" => [[
-                "title"      => $event->get_description(),
-                "title_link" => $link,
-                "text"       => $link,
+            'text'        => $event->get_name() . " by $name ({$user->id}) in $SITE->fullname ($CFG->wwwroot) ",
+            'channel'     => $channel,
+            'attachments' => [[
+                'title'      => $event->get_description(),
+                'title_link' => $link,
+                'text'       => $link,
             ]]
         ];
 

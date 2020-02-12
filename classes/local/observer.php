@@ -44,10 +44,16 @@ class observer {
 
         $whitelist = get_config('tool_rocketchat', 'events');
         $whitelist = explode(PHP_EOL, $whitelist);
-        foreach ($whitelist as $allowed) {
-            $allowed = trim($allowed);
+        foreach ($whitelist as $line) {
+            $parts = explode(',', trim($line));
+            $allowed = array_shift($parts);
+            if (empty($parts)) {
+                $parts = ['']; // If empty use default channel.
+            }
             if ($allowed == $event->eventname) {
-                \tool_rocketchat\local\rocket::send($event);
+                foreach ($parts as $channel) {
+                    \tool_rocketchat\local\rocket::send($event, $channel);
+                }
                 return;
             }
         }
