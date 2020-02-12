@@ -35,7 +35,15 @@ class observer {
      */
     public static function notify(\core\event\base $event) {
 
-        \tool_rocketchat\local\rocket::send($event);
+        $whitelist = get_config('tool_rocketchat', 'events');
+        $whitelist = explode(PHP_EOL, $whitelist);
+        foreach ($whitelist as $allowed) {
+            $allowed = trim($allowed);
+            if ($allowed == $event->eventname) {
+                \tool_rocketchat\local\rocket::send($event);
+                return;
+            }
+        }
 
     }
 }

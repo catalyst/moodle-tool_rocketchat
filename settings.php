@@ -36,7 +36,12 @@ if ($hassiteconfig) {
                 new lang_string('hookurlhelp',       'tool_rocketchat'),
                 '/' ));
 
+        $settings->add(new admin_setting_configtextarea('tool_rocketchat/events',
+                new lang_string('events',           'tool_rocketchat'),
+                new lang_string('eventshelp',       'tool_rocketchat'),
+                '\tool_rocketchat\event\rocketchat_test' ));
     }
+
 }
 
 
