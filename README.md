@@ -16,10 +16,9 @@ Obviously you will only want to listen to a very small subset of events.
 Recipes
 -------
 
-Get alerted whenever an outage is scheduled:
+Get alerted whenever an outage is scheduled or changed:
 
 ```
-\tool_rocketchat\event\rocketchat_test
 \auth_outage\event\outage_created
 \auth_outage\event\outage_updated
 \auth_outage\event\outage_deleted
