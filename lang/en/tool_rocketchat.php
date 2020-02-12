@@ -25,7 +25,7 @@
 $string['pluginname'] = 'Rocketchat events';
 $string['events'] = 'Events';
 $string['eventshelp'] = "A list of event classes to send to rocketchat. Typically you want this list to be very small.";
-$string['eventtest'] = 'A test event';
+$string['eventtest'] = 'A rocketchat connection test';
 $string['hookurl'] = 'Webhook URL';
 $string['hookurlhelp'] = "Copy the full Webhook URL from the Rocketchat 'Incoming WebHook Integration' page. It will look something like:\nhttps://rocketchat.com/hooks/123456789/zxcasdqweertdfhcvn";
 

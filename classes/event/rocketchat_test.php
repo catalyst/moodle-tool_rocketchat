@@ -58,7 +58,7 @@ class rocketchat_test extends \core\event\base {
      * @return string
      */
     public function get_description() {
-        return "The user with id '{$this->userid}' is testing the tool_rocketchat";
+        return "The user with id '{$this->userid}' is testing the rocketchat notications";
     }
 
     /**

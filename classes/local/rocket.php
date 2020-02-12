@@ -61,13 +61,11 @@ class rocket {
         }
 
         $json = [
-            'text' => "$SITE->fullname : $name (ID {$user->id} )",
+            'text' => $event->get_name() . " by $name ({$user->id}) in $SITE->fullname ($CFG->wwwroot) ",
             "attachments" => [[
-                "title"      => $event->get_name(),
+                "title"      => $event->get_description(),
                 "title_link" => $link,
-                "text"       => $event->get_description()
-                            . "\n" . $link,
-                "color"      => "#764FA5"
+                "text"       => $link,
             ]]
         ];
 
