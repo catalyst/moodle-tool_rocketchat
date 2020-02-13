@@ -1,7 +1,8 @@
+<img align="right" width="256" height="256"  src="https://user-images.githubusercontent.com/187449/74343608-71d4eb80-4dff-11ea-9402-969ce0762ebe.png">
+
 <a href="https://travis-ci.org/catalyst/moodle-tool_rocketchat">
 <img src="https://travis-ci.org/catalyst/moodle-tool_rocketchat.svg?branch=master">
 </a>
-
 
 # tool_rocketchat
 
@@ -11,9 +12,10 @@ What is this?
 This is a very simple tool which listens to Moodle log events you specify,
 and then it pushes those events into RocketChat.
 
+You will likely only want to listen to a very small subset of important events.
+
 ![image](https://user-images.githubusercontent.com/187449/74342807-2f5edf00-4dfe-11ea-8451-2be090a66b2d.png)
 
-Obviously you will only want to listen to a very small subset of events.
 
 Recipes
 -------
