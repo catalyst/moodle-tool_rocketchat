@@ -44,6 +44,8 @@ class rocket {
     static public function send($event, $channel = '') {
 
         global $CFG, $SITE;
+        require_once("$CFG->libdir/filelib.php");
+
         $url = get_config('tool_rocketchat', 'hookurl');
 
         $curl = new \curl(['debug' => 0]);
