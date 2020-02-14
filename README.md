@@ -28,6 +28,8 @@ Get alerted whenever an outage is scheduled or changed:
 \auth_outage\event\outage_deleted
 ```
 
+![image](https://user-images.githubusercontent.com/187449/74540121-57cc1200-4f93-11ea-8810-204a6a1a69d2.png)
+
 
 Create a Rocketchat WebHook
 ---------------------------
